@@ -1,0 +1,115 @@
+
+// File Name: passwordDriver.cpp
+//
+// Author: Ayisha S.R. Sowkathali
+// Date:11/01/2016
+// Assignment Number: 4
+// CS 2308.002 Spring 2016
+// Instructor: Jill Seaman
+//
+// Program to manage passwords.
+// This file contains the main function that links the header file
+//   and its own .cpp file.
+
+#include <iostream>
+#include <fstream>
+#include "pa4.h"
+
+const int SIZE=3;
+const string DEFAULT_PW = "ABC123***";
+
+bool validateOPw(string oldPassword) {
+     if (oldPassword != DEFAULT_PW) {
+          cout << "Old password is incorrect." << endl;
+     }
+}
+
+int main()
+{
+     // Call for header file
+     PasswordManager pm[SIZE];
+     
+     string pw;
+     string encryptedPw;
+     
+     
+     ifstream fin;
+     ofstream fout;
+     
+     fin.open("password.txt");
+     if (fin) {
+          fin >> encryptedPw;
+          for (int i=0; i<SIZE; i++) {
+               pm[i].setEncryptedPassword(encryptedPw);
+          }
+     } else {
+          for (int i=0; i<SIZE; i++) {
+               pm[i].setNewPassword(DEFAULT_PW);
+               //cout << pm[i].setNewPassword(DEFAULT_PW);
+          }
+          
+     }
+     fin.close();
+     
+     int netID;
+     string oldPassword;
+     string newPassword;
+     bool check;
+     
+     cout << "Please enter you netID: ";
+     cin >> netID;
+     do {
+          cout << "Please enter your old password: ";
+          cin >> oldPassword;
+          cout << "Please enter your new password: ";
+          cin >> newPassword;
+          switch (netID) {
+               case 0:
+                    check = pm[netID].setNewPassword(newPassword);
+                    if (!check) {
+                         cout << "New password does not meet criteria." << endl;
+                    } else {
+                         cout << "Password has been changed for netID: " <<
+                         netID << endl;
+                    }
+                    break;
+               case 1:
+//                    cout << "Please enter your new password: ";
+//                    cin >> newPassword;
+                    check = pm[netID].setNewPassword(newPassword);
+                    if (!check) {
+                         cout << "New password does not meet criteria." << endl;
+                    } else {
+                         cout << "Password has been changed for netID: " <<
+                         netID << endl;
+                    }
+                    break;
+               case 2:
+//                    cout << "Please enter your new password: ";
+//                    cin >> newPassword;
+                    check = pm[netID].setNewPassword(newPassword);
+                    if (!check) {
+                         cout << "New password does not meet criteria." << endl;
+                    } else {
+                         cout << "Password has been changed for netID: " <<
+                         netID << endl;
+                    }
+                    break;
+               default:
+                    cout << "NetID is invalid. Password not changed." << endl;
+                    break;
+          }
+     } while (netID < 0 && netID > 3);
+
+     // Output file
+     fout.open("password.txt");
+     for (int i=0; i<SIZE; i++) {
+          fout << pm[i].getEncryptedPassword() << endl;
+     }
+     fout.close();
+     
+     
+     return 0;
+}
+
+

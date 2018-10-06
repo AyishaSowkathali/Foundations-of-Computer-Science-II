@@ -1,0 +1,42 @@
+void StringList::sort() {
+     StringNode *newList = NULL; // new empty list
+     
+     StringNode *h = head;
+     h = h->next;   // removing first node
+     
+     
+     
+     string prev = h->data;
+     
+     
+     StringNode *newNode = new StringNode;
+     
+     
+     StringNode *nNode = head->next; // assign head to newlist
+     
+     string next = nNode->data;
+     
+     newlist->data = nNode->data;
+     
+     while (h) {
+          cout << "yes" << endl;
+          if (prev > next) {
+               newNode->data = prev;
+               cout << "newNode->data - " << newNode->data << endl;
+               newNode->next = NULL;
+               h->data = nNode->data;
+               cout << "h->data - " << h->data << endl;
+               h = nNode;
+          }
+     }
+     
+    
+//     else {
+//          newNode->data = next;
+//          cout << "newNode->data - " << newNode->data << endl;
+//     }
+     
+//     h=newlist;
+     
+}
+

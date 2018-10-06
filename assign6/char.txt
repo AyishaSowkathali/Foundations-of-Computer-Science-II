@@ -1,0 +1,2 @@
+int main () { x[size]=10;
+

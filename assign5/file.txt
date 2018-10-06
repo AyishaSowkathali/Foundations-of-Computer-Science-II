@@ -1,0 +1,67 @@
+void StringList::sort() {
+     StringNode *newlist = NULL; // head of a new list
+     StringNode *p = head;
+     StringNode *n = =p->next;
+     
+     while (p) {
+          p =p->next;
+          if (p > n) {
+               // compare and swap
+               p->data = n->data;
+               cout << "yes " << endl;
+          }
+     }
+     p = n;
+     
+     
+     if (p > n) {
+          // compare and swap
+          p->data = n->data;
+          cout << "yes " << endl;
+     }
+     
+     for (p = head; p->next != NULL; p = p->next) {
+          // compare to the list ahead
+          for (n = p->next; n != NULL; n = n->next) {
+               
+          }
+          p = n;
+     }
+     cout << "p = " << p->data << endl;
+
+}
+
+//void StringList::sort() {
+//     StringNode *newlist = NULL; // head of a new list
+//     StringNode *p = head; // current node set to head
+//     StringNode *n = NULL; // previous node
+//     
+//     StringNode *newNode = new StringNode();
+//     
+//     while (p) //repeat for everynode
+//     {
+//          head = head->next; // removes first node from original list
+//          
+//          // finding before and after to insert new list
+//          n = p;    // saving the address of current node
+//          p = p->next; // advance current node to next one
+//          cout << "p : " << p->data << endl;
+//          
+//          // modify new list to insert old node into new list
+//          if (n==NULL) { // p must be pointing to first node
+//               head = newNode;
+//               newNode->next = p;
+//          }
+//          else //n is not NULL
+//          {
+//               n->next = newNode;
+//               newNode->next = p;
+//          } //if p is null, n is pointing to the last node, and it works.
+//     }
+//     p = newlist; // old head ptr point to new list
+// }
+
+
+
+
+
